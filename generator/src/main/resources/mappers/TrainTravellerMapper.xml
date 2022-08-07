@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aliyun.mapper.TrainTravellerMapper">
+  <insert id="insert" parameterType="com.aliyun.model.TrainTraveller">
+    insert into train_traveller (id, name, adult_flag, 
+      sex, id_type, id_number, 
+      contact, address, email
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{adultFlag,jdbcType=TINYINT}, 
+      #{sex,jdbcType=TINYINT}, #{idType,jdbcType=SMALLINT}, #{idNumber,jdbcType=VARCHAR}, 
+      #{contact,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aliyun.model.TrainTraveller">
+    insert into train_traveller
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="adultFlag != null">
+        adult_flag,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="idType != null">
+        id_type,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="contact != null">
+        contact,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="adultFlag != null">
+        #{adultFlag,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=SMALLINT},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

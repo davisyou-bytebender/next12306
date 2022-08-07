@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aliyun.mapper.TrainNumberDetailMapper">
+  <insert id="insert" parameterType="com.aliyun.model.TrainNumberDetail">
+    insert into train_number_detail (id, train_number_id, from_station_id, 
+      from_city_id, to_station_id, to_city_id, 
+      station_index, relative_minute, wait_minute, 
+      money)
+    values (#{id,jdbcType=INTEGER}, #{trainNumberId,jdbcType=INTEGER}, #{fromStationId,jdbcType=INTEGER}, 
+      #{fromCityId,jdbcType=INTEGER}, #{toStationId,jdbcType=INTEGER}, #{toCityId,jdbcType=INTEGER}, 
+      #{stationIndex,jdbcType=INTEGER}, #{relativeMinute,jdbcType=INTEGER}, #{waitMinute,jdbcType=INTEGER}, 
+      #{money,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aliyun.model.TrainNumberDetail">
+    insert into train_number_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="trainNumberId != null">
+        train_number_id,
+      </if>
+      <if test="fromStationId != null">
+        from_station_id,
+      </if>
+      <if test="fromCityId != null">
+        from_city_id,
+      </if>
+      <if test="toStationId != null">
+        to_station_id,
+      </if>
+      <if test="toCityId != null">
+        to_city_id,
+      </if>
+      <if test="stationIndex != null">
+        station_index,
+      </if>
+      <if test="relativeMinute != null">
+        relative_minute,
+      </if>
+      <if test="waitMinute != null">
+        wait_minute,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="trainNumberId != null">
+        #{trainNumberId,jdbcType=INTEGER},
+      </if>
+      <if test="fromStationId != null">
+        #{fromStationId,jdbcType=INTEGER},
+      </if>
+      <if test="fromCityId != null">
+        #{fromCityId,jdbcType=INTEGER},
+      </if>
+      <if test="toStationId != null">
+        #{toStationId,jdbcType=INTEGER},
+      </if>
+      <if test="toCityId != null">
+        #{toCityId,jdbcType=INTEGER},
+      </if>
+      <if test="stationIndex != null">
+        #{stationIndex,jdbcType=INTEGER},
+      </if>
+      <if test="relativeMinute != null">
+        #{relativeMinute,jdbcType=INTEGER},
+      </if>
+      <if test="waitMinute != null">
+        #{waitMinute,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
